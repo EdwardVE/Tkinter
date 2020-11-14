@@ -1,12 +1,10 @@
-# Tkinter
-Taller/Edward V
+
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import ttk
 from tkinter import messagebox
 import random
-
-#Ulti
+from PIL import ImageTk, Image
 
 # from tkinter import *
 # from ttk import *
@@ -59,6 +57,18 @@ def init_window():
         colors=['green','black','white','red','blue','purple']
         r_color=random.choice(colors)
         window.config(background=r_color)
+    def icono():
+        window.iconbitmap(r'C:\Users\edwar\Downloads\CODIGO.ico')
+
+
+
+    def imagen():
+        ventana=Tk()
+        imagen=ImageTk.PhotoImage(Image.open(r'C:\Users\edwar\Downloads\COD.PNG'))
+        #window.config(Label= imagen)
+        label=Label(Image=imagen)
+        label.pack()
+        ventana.mainloop()
 
 
     label = tk.Label(window, text='Calculadora' ,font=('Arial bold', 15))
@@ -69,9 +79,18 @@ def init_window():
 
     label_entrada2 = tk.Label(window, text='Ingrese segundo numero' ,font=('Arial bold', 10))
     label_entrada2.grid(column=0, row=2)
+
+
+
     main_btm=tk.Button(window, text='Cambia color', command=changeBG)
     main_btm.place(x=300,y=210)
 
+
+    main_dibu=tk.Button(window, text='Traer ícono', command=icono)
+    main_dibu.place(x=200,y=210)
+
+    main_dibu=tk.Button(window, text='Traer imagen', command=imagen)
+    main_dibu.place(x=100,y=210)
 
     entrada1 =tk.Entry(window, width=10)
     entrada2 =tk.Entry(window, width=10)
